@@ -1,0 +1,64 @@
+<div class="formContainer">
+  <h1 class="title">PurpleTalk</h1>
+  <div class="container" class="signup">
+    <h1  align="center" style="font-weight: bold;font-family:Georgia, 'Times New Roman', Times, serif">Sign Up</h1>
+    <form [formGroup]="hrForm" (ngSubmit)="hrFormSubmit()">
+          <div class="form-group" style="margin-left:60px;padding: 0%">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" style="width:250px;"
+              formControlName="name">
+              <div [hidden]="hrForm.get('name').valid || hrForm.get('name').untouched" class="error">
+                <small style="color: brown">Enter Valid Name(Name should be minimun 3 characters</small>
+              </div>
+          </div>
+          <br/>
+          <div class="form-group" style="margin-left:60px;">
+            <label for="username">User Name</label>
+            <input type="text" class="form-control" id="username" style="width:250px;" 
+            formControlName="username">
+            <div class="error">
+              <small *ngIf="hrForm.get('username').invalid && hrForm.get('username').touched" style="color: brown">Enter Valid Username(UserName should be minimun 6 characters</small>
+              <small *ngIf="userNameStatus" style="color: brown">UserName already exist.</small>
+            </div>
+          </div>
+        <br/>
+        <div class="form-group" style="margin-left:60px;">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email" style="width:250px;" 
+          formControlName="email">
+          <div [hidden]="hrForm.get('email').valid || hrForm.get('email').untouched" class="error">
+            <small style="color: brown">Enter Valid Email</small>
+          </div>
+      </div>
+      <br/>
+      <div class="form-group" style="margin-left:60px;">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" id="password" style="width:250px;"
+        formControlName="password">
+        <div [hidden]="hrForm.get('password').valid || hrForm.get('password').untouched" class="error">
+          <small style="color: brown">Enter Valid Password</small>
+        </div>
+    </div>
+          <br/>
+          <div class="form-group" style="margin-left:60px;">
+            <label for="password">Confirm Password</label>
+            <input type="text" class="form-control" id="confirmpassword" style="width:250px;" formControlName='confirmPassword'>
+              <div *ngIf="!hrForm.errors?.identityRevealed">
+                <small style="color: brown">Password MisMatches</small>
+              </div>
+          </div>
+          <button type="submit" class="btn btn-success" style="margin-top:25px;margin-left:100px;width:100px;" [disabled]="hrForm.invalid">Submit</button>
+          <button type="reset" class="btn btn-light" style="margin-top:25px;margin-left:100px;width:100px;" >Reset</button>  
+        </form>
+  </div>
+  <div class="signin">
+    <small>Already have an account? <a routerLink="/login">Login In</a></small>
+  </div>
+  {{hrForm.value|json}}
+  {{hrForm.get('name').status}}
+  {{hrForm.get('username').status}}
+  {{hrForm.get('email').status}}
+  {{hrForm.get('password').status}}
+  {{hrForm.get('confirmPassword').status}}
+
+</div>

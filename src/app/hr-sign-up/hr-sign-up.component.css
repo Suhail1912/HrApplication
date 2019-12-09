@@ -1,0 +1,47 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+.signup {
+    background-color: rgb(220, 229, 247);
+    /* border: 1px solid #42464b; */
+    border-radius: 6px;
+    height: 600px;
+    width: 550px;
+    margin-top:0%;
+    margin-left:32%; 
+    
+  }
+  .error{
+    position: absolute;
+  }
+  .title
+  {
+    margin-bottom:0px;
+    margin-left:32%;
+        font-weight: 600;
+        font-family: 'Titillium Web', sans-serif;
+        position: relative;  
+        font-size: 36px;
+        line-height: 40px;
+        color: #355681;
+        
+  }
+
+  input[type="password"]:focus, input[type="text"]:focus {
+    box-shadow: 0 0 4px 1px rgba(156, 196, 248, 0.938);
+    outline: 0;
+  }
+
+  .signin{
+    margin-left: 40%;
+    font-size: 16px;
+    margin-top: 2%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  .background{
+    /* background-color: rgb(100, 109, 230);   */
+    background-image: url("./../../assets/images/login-background.jpg");
+    height: fit-content ;
+    width: 100%;
+    background-size: cover;
+    /* background-image: "/home/rohitha/Downloads/login-background.jpg"; */
+    }

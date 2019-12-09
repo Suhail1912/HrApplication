@@ -1,0 +1,77 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+div.header
+{
+    background-color: rgb(217, 204, 245);  
+    padding: 20px;
+    display: block;
+    position: sticky;
+    top:0;
+}
+.anchor a
+{
+    margin-left: 20px;
+}
+.backgroundframe{
+    margin-left: 280px;
+    background-color: rgb(247, 245, 252);
+    max-width: 800px;
+    padding: 25px;
+    border-radius: 5px;
+    
+    
+}
+.employeeAddressDetailsBackGround{
+    margin-left: 280px;
+    background-color: rgb(247, 245, 252);
+    max-width: 800px;
+    padding:  0px 25px 25px 25px;
+    border-radius: 5px;
+}
+
+
+.backgroundframe div, .employeeAddressDetailsBackGround div{  
+    margin-bottom: 30px;  
+}
+.backgroundframe  span, .employeeAddressDetailsBackGround span{
+    display: block;
+    font-size: 18px; 
+    font-style: italic;
+    color: black
+}
+
+input[type=text]{
+    border: none;
+    border-bottom: 1px solid #0000007a;
+    width:280px;
+    font-size:15px;
+    margin-left: 10px;
+    
+    
+}
+
+input[type=email]{
+    border: none;
+    border-bottom: 1px solid #0000007a;
+    width:280px;
+    font-size:15px;
+    margin-left: 10px;
+    
+}
+
+input[type=tel]{
+    border: none;
+    border-bottom: 1px solid #0000007a;
+    width:280px;
+    font-size:15px;
+    margin-left: 10px;
+}
+
+
+input[type="date"] {
+  border-bottom: 2px solid #c4c4c4;
+  width: 280px;
+  margin-left: 10px;
+  font-size: 15px;
+  height: 30px;
+  background-color: #fff;
+}

@@ -1,0 +1,35 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+div.header
+{
+    background-color: rgb(217, 204, 245);  
+    padding: 20px;
+    display: block;
+    margin-bottom: 30px;
+}
+.anchor a
+{
+    margin-left: 20px;
+}
+
+
+    #LIST-OF-EMPLOYEES {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    margin-left: 50px;
+    width: 100%;    
+    }
+    #LIST-OF-EMPLOYEES tr:nth-child{background-color: #f2f2f2;}
+    #LIST-OF-EMPLOYEES tr:hover {background-color: #ddd;}
+    
+    #LIST-OF-EMPLOYEES th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(67, 161, 71);
+    color: white;
+    font-weight: bolder;
+    }
+    #LIST-OF-EMPLOYEES tr {
+        height: 50px;
+    }
+    
+    

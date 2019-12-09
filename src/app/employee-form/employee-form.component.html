@@ -1,0 +1,254 @@
+<div  class='header'>
+	<div class='anchor'>
+		<a routerLink="/home">
+		  <img src="./../../assets/images/169169-1455124261-Purpletalk-logo.png"  alt="PurpleTalk Logo"height='50'width='130'/>
+	  </a>
+	</div> 
+  </div>
+<div>
+	<form #employeeForm="ngForm" (ngSubmit)='formSubmit()'>
+	<h3 style="margin-left:220px">Employee Details</h3>
+	<div class="backgroundframe">
+		  <table>
+			  <tr>
+				  <div *ngIf='PTIdStatus'>
+					  <span>Employee Id</span>
+					  <input style=" margin-right: 20px;"type="text" id="employeeId" name="employeeId">
+					  <button class="btn btn-light" style="font-weight: 100;" >Generate Unique PT Id</button>
+				  </div>
+			  </tr>
+			  <tr>
+				<div class="row01" style="display: block;">
+					<td>
+						<div class="labelWithFirstName" style="display: inline;margin-right: 50px;">
+							<span>First Name</span>
+							<input type="text" id="firstname" pattern="[a-zA-Z][a-zA-Z ]*" [value]="employeeDetails.firstName" #firstname="ngModel" [(ngModel)]="employeeDetails.firstName"  required name="firstName"  >
+							<div *ngIf="firstname.invalid && firstname.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Name!</small></div>
+						</div>
+	
+					</td>
+					<td> 
+						<div class="labelWithSecondName" style="display: inline;">
+							<span>Second Name</span>
+							<input type="text" id="lastname" pattern="[a-zA-Z][a-zA-Z ]*" [value]="employeeDetails.lastName" [(ngModel)]="employeeDetails.lastName" #secondname="ngModel" required name="lastName">
+							<div *ngIf="secondname.invalid && secondname.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Name!</small></div>
+						</div>
+					</td>	
+				</div>
+			 </tr>
+			 <tr>
+				<div class="row02" style="display: block;">
+					<td>
+						<div class="emailId" style="display: inline;margin-right: 50px;">
+								<span>Email Id</span>
+								<input type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  [value]="employeeDetails.emailId" [(ngModel)]="employeeDetails.emailId" #emailid="ngModel" name="emailId" required>
+								<div *ngIf="emailid.invalid && emailid.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Email!</small></div>
+							</div>
+					</td>
+					<td> 
+							<div class="mobileNumber" style="display: inline;">
+								<span>Mobile Number</span>
+								<input type="tel" id="mobileNumber" pattern="[7-9][0-9]{9}" [value]="employeeDetails.mobileNumber" [(ngModel)]="employeeDetails.mobileNumber"  required name="mobileNumber" #mobilenumber="ngModel">
+								<div *ngIf="mobilenumber.invalid && mobilenumber.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Number!</small></div>
+							</div>
+					</td>
+				</div>	
+			</tr>
+			<tr>
+				<div class="row03" style="display: block;">
+					<td>
+						<div class="emergencyContactName" style="display: inline;margin-right: 50px;">
+							<span>Emergency Contact Name</span>
+							<input type="text" id="emergencyContactName" [value]="employeeDetails.emergencyContactName" [(ngModel)]="employeeDetails.emergencyContactName"  required name="emergencyContactName" #emergencyContactName="ngModel"/>
+							<div *ngIf="emergencyContactName.invalid && emergencyContactName.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Name!</small></div>
+						</div>
+					</td>
+					<td>
+						<div class="emergencyContactNumber" style="display: inline;">
+							<span>Emergency Contact Number</span>
+							<input type="tel" pattern="[7-9][0-9]{9}" id="emergencyContactNumber" [value]="employeeDetails.emergencyContactNumber" [(ngModel)]="employeeDetails.emergencyContactNumber"  required name="emergencyContactNumber"  #emergencyContactNumber="ngModel">
+							<div *ngIf="emergencyContactNumber.invalid && emergencyContactNumber.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Number!</small></div>
+						</div>
+					</td>	
+				</div>
+			</tr>
+			<tr>
+				<div class="row04" style="display: block;">
+					<td>
+						<div style="display: inline;margin-right: 50px;">
+							<span>Date Of Birth</span>
+							<input type="text" name="dateofbirth" id="dateofbirth" [value]="employeeDetails.dateOfBirth" [(ngModel)]="employeeDetails.dateOfBirth" required>
+						</div>
+					</td>
+					<td>
+						<div style="display: inline;">
+							<span>Blood Group</span>
+							<select style="margin-left: 10px;" [value]='employeeDetails.bloodGroup' [(ngModel)]="employeeDetails.bloodGroup" name="bloodGroup" required>
+									<option style="width: 215px;">A+</option>
+									<option>A-</option>
+									<option>B+</option>
+									<option>B-</option>
+									<option>AB+</option>
+									<option>AB-</option>
+									<option>O+</option>
+									<option>O-</option>
+							</select>
+							<div *ngIf="employeeDetails.bloodGroup == 'Select Blood Group'" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please select blood group!</small></div>
+			
+						</div>
+					</td>
+				</div>
+			</tr>
+		</table>
+		
+	</div>
+
+		<h3 style="margin-left:220px">Employee Office Details</h3>
+		<div class="backgroundframe">
+					<table>
+						<tr>
+						  <div class="row11" style="display: block;">
+							  <td>
+								  <div class="department" style="display: inline;margin-right: 50px;">
+									  <span>Department Name</span>
+									  <input type="text" id="department" pattern="[a-zA-Z][a-zA-Z ]*" #department="ngModel" required  [value]="employeeDetails.employeeOfficeDetails.departmentName" [(ngModel)]="employeeDetails.employeeOfficeDetails.departmentName"  required name="departmentName">
+									  <div *ngIf="department.invalid && department.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Department Name!</small></div>
+			
+									</div>
+							  </td>
+							  <td> 
+								  <div class="teamName" style="display: inline;">
+									  <span>Team Name</span>
+									  <input type="text" id="teamName" pattern="[a-zA-Z][a-zA-Z ]*"  #teamname="ngModel" required [value]="employeeDetails.employeeOfficeDetails.teamName" [(ngModel)]="employeeDetails.employeeOfficeDetails.teamName" name="teamName">
+									  <div *ngIf="teamname.invalid && teamname.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Team Name!</small></div>
+				
+									</div>
+							  </td>	
+						  </div>
+					   </tr>
+					   <tr>
+						  <div class="row12" style="display: block;">
+							  <td>
+								  <div class="reportingHr" style="display: inline;margin-right: 50px;">
+										  <span>Reporting HR</span>
+										  <input type="text" id="reportingHr" pattern="[a-zA-Z][a-zA-Z ]*" #reportingHr="ngModel" required [value]="employeeDetails.employeeOfficeDetails.hr" [(ngModel)]="employeeDetails.employeeOfficeDetails.hr" name="reportingHr">
+										  <div *ngIf="reportingHr.invalid && reportingHr.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Hr Name!</small></div>
+				
+										</div>
+							  </td>
+							  <td> 
+									  <div class="reportingManager" style="display: inline;">
+										  <span>Reporting Manager</span>
+										  <input type="tel" id="reportingManager" pattern="[a-zA-Z][a-zA-Z ]*" #reportingManager="ngModel" required [value]="employeeDetails.employeeOfficeDetails.reportingManager" [(ngModel)]="employeeDetails.employeeOfficeDetails.reportingManager" name="reportingManager">
+										  <div *ngIf="reportingManager.invalid && reportingManager.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Manager Name!</small></div>
+				
+									</div>
+							  </td>
+						  </div>	
+					  </tr>
+					  <tr>
+						  <div class="row13" style="display: block;">
+							  <td>
+								  <div class="designation" style="display: inline;margin-right: 50px;">
+									  <span>Designation</span>
+									  <input type="text" id="designation" pattern="[a-zA-Z][a-zA-Z ]*" #designation="ngModel" required [value]="employeeDetails.employeeOfficeDetails.designation" [(ngModel)]="employeeDetails.employeeOfficeDetails.designation" name="designation"/>
+									  <div *ngIf="designation.invalid && designation.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Designation Name!</small></div>
+				
+									</div>
+							  </td>
+							  <td>
+								  <div class="location" style="display: inline;">
+									  <span>Location</span>
+									  <input type="tel" id="location" pattern="[a-zA-Z][a-zA-Z ]*" #location="ngModel" required [value]="employeeDetails.employeeOfficeDetails.jobLocation" [(ngModel)]="employeeDetails.employeeOfficeDetails.jobLocation" name='location'>
+									  <div *ngIf="location.invalid && location.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Location Name!</small></div>
+				
+								</div>
+							  </td>	
+						  </div>
+					  </tr>
+					</table>
+			</div>
+		<h3 style="margin-left:220px">Employee Personal Details</h3>
+		<div class="employeeAddressDetailsBackGround">
+			<span style="position: relative;left:0%;top:0%;display: block;color:rgb(199, 196, 196);font-weight: bold">Permanent Address</span>
+					<table>
+						<tr>
+						  <div class="row21" style="display: block;margin-top: 20px; ">
+							  <td>
+								  <div class="doorNumber" style="display: inline;margin-right: 50px;">
+									  <span>Door Number</span>
+									  <input type="text" id="doorNumber" required #doornumber="ngModel" name="doorNumber" [value]="employeeDetails.employeeAddressDetails.doorNumber" [(ngModel)]="employeeDetails.employeeAddressDetails.doorNumber">
+									  <div *ngIf="doornumber.invalid && doornumber.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Door Number!</small></div>
+				
+									</div>
+							  </td>
+							  <td> 
+								  <div class="streetName" style="display: inline;">
+									  <span>Street</span>
+									  <input type="text" id="streetName" required  #streetName="ngModel" name="streetName" [value]="employeeDetails.employeeAddressDetails.streetName" [(ngModel)]="employeeDetails.employeeAddressDetails.streetName">
+									  <div *ngIf="streetName.invalid && streetName.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Street Name!</small></div>
+				
+									</div>
+							  </td>	
+						  </div>
+					   </tr>
+					   <tr>
+						  <div class="row22" style="display: block;">
+							  <td>
+								  <div class="city" style="display: inline;margin-right: 50px;">
+										  <span>City/Town</span>
+										  <input type="text" id="city" pattern="[a-zA-Z][a-zA-Z ]*" #city="ngModel" required name="city" [value]="employeeDetails.employeeAddressDetails.city" [(ngModel)]="employeeDetails.employeeAddressDetails.city">
+										  <div *ngIf="city.invalid && city.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid City Name!</small></div>
+				
+									</div>
+							  </td>
+							  <td> 
+									  <div class="district" style="display: inline;">
+										  <span>District</span>
+										  <input type="text" id="district" pattern="[a-zA-Z][a-zA-Z ]*" #district="ngModel" required name="district" [value]="employeeDetails.employeeAddressDetails.district" [(ngModel)]="employeeDetails.employeeAddressDetails.district">
+										  <div *ngIf="district.invalid && district.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid District Name!</small></div>
+				
+										</div>
+							  </td>
+						  </div>	
+					  </tr>
+					  <tr>
+						  <div class="row23" style="display: block;">
+							  <td>
+								  <div class="state" style="display: inline;margin-right: 50px;">
+									  <span>State/Region</span>
+									  <input type="text" id="state" pattern="[a-zA-Z][a-zA-Z ]*" #state="ngModel" required name="state" [value]="employeeDetails.employeeAddressDetails.state" [(ngModel)]="employeeDetails.employeeAddressDetails.state"/>
+									  <div *ngIf="state.invalid && state.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid State Name!</small></div>
+				
+									</div>
+							  </td>
+							  <td>
+								  <div class="zipCode" style="display: inline;">
+									  <span>Zip/Postal Code</span>
+									  <input type="tel" id="zipCode" pattern="^[1-9][0-9]{5}$" #pincode="ngModel" required name="zipCode" [value]="employeeDetails.employeeAddressDetails.pincode" [(ngModel)]="employeeDetails.employeeAddressDetails.pincode">
+									  <div *ngIf="pincode.invalid && pincode.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid PinCode!</small></div>
+				
+									</div>
+							  </td>	
+						  </div>
+					  </tr>
+					  <tr>
+						  <div style="display: block;">
+							<td>
+								<div class="country" style="display: inline;margin-right: 50px;">
+									<span>Country</span>
+									<input type="text" id="country"  pattern="[a-zA-Z][a-zA-Z ]*" #country="ngModel" required name="country" [value]="employeeDetails.employeeAddressDetails.country" [(ngModel)]="employeeDetails.employeeAddressDetails.country"/>
+									<div *ngIf="country.invalid && country.touched" style="margin: 0%;color: rgb(216, 44, 14);position: absolute;"><small>Please Enter Valid Country Name!</small></div>
+				
+								</div>
+							</td>
+						  </div>
+					  </tr>
+					</table>
+			</div>
+			<div class="buttons" style="margin-top:30px;margin-left:550px;margin-bottom: 50px;">
+				<button type="submit" class="btn btn-success" style="margin-right:200px;width:100px;" [disabled]="!employeeForm.form.valid">Submit</button>
+				<button type="reset" class="btn btn-light" style="width:100px;" >Reset</button>
+			</div>
+	</form>			
+</div>

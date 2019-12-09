@@ -1,0 +1,19 @@
+<div class="background">
+    <div class="middle" >
+        <h2 class="header">PurpleTalk</h2>
+        <div class="login">
+          <form  #hrForm="ngForm" (ngSubmit)="onSubmit()">
+            <div [hidden]="loginStatus" style="position: absolute">
+              <small class="invalid">Invalid Credentials...Try Again</small>
+            </div>
+            <input required type="text" placeholder="username" id="username" [(ngModel)]="loginModel.usernameOrEmail" name="username">  
+            <input required type="password" placeholder="password" id="password" [(ngModel)]="loginModel.password" name="password">  
+            <a href="#" class="forgot">forgot password?</a>
+            <input type="submit" value="Sign In">
+          </form>
+        </div>
+  </div>
+  <div class="signup">
+    <small>Don't have an account? <a routerLink="/signup">Sign up</a></small>
+  </div> 
+</div>

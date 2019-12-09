@@ -1,0 +1,45 @@
+<div  class='header'>
+	<div class='anchor'>
+		<a routerLink="/home">
+		  <img src="./../../assets/images/169169-1455124261-Purpletalk-logo.png"  alt="PurpleTalk Logo"height='50'width='130'/>
+	  </a>
+	</div> 
+  </div>
+<div>
+   <div style="float: right;">
+       <a href="" alt="Add Employee"title="Add Employee" routerLink="/addemployee"><img src='./../../assets/images/add-button-lite-computer-icon_fyQowpUd_SB_PM.jpg' alt="Add Employee" width="50" height="50"></a>
+   </div>
+    
+<div class="tabledata">
+    <table ID="LIST-OF-EMPLOYEES">
+    <thead>
+        <tr>
+            <Th>EMPLOYEEID</Th>
+            <Th>EMPLOYEENAME</Th>
+            <Th>DESIGNATION</Th>
+            <th>EMAILID</th>
+            <th></th>
+        </tr>
+    </thead>
+    <TBODY>
+        <TR *ngFor="let employee of employeeDetails;index as i">
+            <TD>{{employee.employeeId}}</TD>
+            <TD>{{employee.firstName}}</TD>
+            <TD>{{employee.employeeOfficeDetails.designation}}</TD>
+            <TD>{{employee.emailId}}</TD>
+            <td style="text-align: center">
+                <button (click)="edit(employee.employeeId)">
+                    <img src="./../assets/images/edit.png" height="20"/>
+                </button>
+                <button (click)="delete(employee.employeeId)">
+                    <img src="./../assets/images/delete.png" height="20"/>
+                </button>
+            </td>
+        </TR>
+    </TBODY>
+    </table>
+</div>
+<div style="margin-left:100px">
+    <button (click)="previous()">Previous</button>
+    <button (click)="next()">Next</button>
+</div>
